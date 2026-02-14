@@ -51,7 +51,7 @@ function showErrorPage(window, message) {
     </head>
     <body>
       <div class="error-container">
-        <h1>⚠️ Application Error</h1>
+        <h1>Application Error</h1>
         <pre>${message}</pre>
         <div class="info">
           <strong>Tip:</strong> Check the terminal where you ran <code>npm run dev</code> for more details.
