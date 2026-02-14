@@ -1,0 +1,30 @@
+{
+  "name": "real-time-portfolio-analytics",
+  "version": "1.0.0",
+  "description": "Real-time risk calculations based off of live market data and your portfolio",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "NODE_ENV=development concurrently -k -s first -n \"BACKEND,FRONTEND,ELECTRON\" -c \"yellow,blue,green\" \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:electron\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:electron": "node scripts/wait-and-launch.js",
+    "electron": "NODE_ENV=development electron .",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "start": "NODE_ENV=production electron .",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "portfolio",
+    "analytics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^28.0.0"
+  }
+}
