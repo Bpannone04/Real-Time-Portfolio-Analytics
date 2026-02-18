@@ -34,7 +34,7 @@ function checkUrl(url) {
 }
 
 async function waitForServers() {
-  console.log('⏳ Waiting for servers to be ready...');
+  console.log('Waiting for servers to be ready...');
   const startTime = Date.now();
 
   while (Date.now() - startTime < MAX_WAIT) {
@@ -44,26 +44,26 @@ async function waitForServers() {
     ]);
 
     if (frontendReady && backendReady) {
-      console.log('✅ Both servers are ready!');
+      console.log('Both servers are ready!');
       return true;
     }
 
     if (!frontendReady) {
-      process.stdout.write(`\r⏳ Waiting for frontend (${FRONTEND_URL})...`);
+      process.stdout.write(`\rWaiting for frontend (${FRONTEND_URL})...`);
     }
     if (!backendReady) {
-      process.stdout.write(`\r⏳ Waiting for backend (${BACKEND_URL})...`);
+      process.stdout.write(`\rWaiting for backend (${BACKEND_URL})...`);
     }
 
     await new Promise(resolve => setTimeout(resolve, CHECK_INTERVAL));
   }
 
-  console.error('\n❌ Timeout waiting for servers');
+  console.error('\nTimeout waiting for servers');
   return false;
 }
 
 function launchElectron() {
-  console.log('🚀 Launching Electron...');
+  console.log('Launching Electron...');
   const electron = exec('NODE_ENV=development electron .', {
     cwd: process.cwd(),
     env: { ...process.env, NODE_ENV: 'development' }
