@@ -64,7 +64,7 @@ async function waitForServers() {
 
 function launchElectron() {
   console.log('🚀 Launching Electron...');
-  const electron = exec('NODE_ENV=development electron .', {
+  const electron = exec('electron .', {
     cwd: process.cwd(),
     env: { ...process.env, NODE_ENV: 'development' }
   });

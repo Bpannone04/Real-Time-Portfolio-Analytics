@@ -4,15 +4,15 @@
   "description": "Real-time risk calculations based off of live market data and your portfolio",
   "main": "electron/main.js",
   "scripts": {
-    "dev": "NODE_ENV=development concurrently -k -s first -n \"BACKEND,FRONTEND,ELECTRON\" -c \"yellow,blue,green\" \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:electron\"",
+    "dev": "cross-env NODE_ENV=development concurrently -k -s first -n \"BACKEND,FRONTEND,ELECTRON\" -c \"yellow,blue,green\" \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:electron\"",
     "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npm run dev",
     "dev:electron": "node scripts/wait-and-launch.js",
-    "electron": "NODE_ENV=development electron .",
+    "electron": "cross-env NODE_ENV=development electron .",
     "build": "npm run build:frontend && npm run build:backend",
     "build:frontend": "cd frontend && npm run build",
     "build:backend": "cd backend && npm run build",
-    "start": "NODE_ENV=production electron .",
+    "start": "cross-env NODE_ENV=production electron .",
     "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
   },
   "keywords": [
@@ -25,6 +25,7 @@
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
     "electron": "^28.0.0"
   }
 }
